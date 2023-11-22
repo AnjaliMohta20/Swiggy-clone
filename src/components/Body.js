@@ -62,7 +62,6 @@ const Body = () => {
           <h1>No Result Found.......</h1>
         ) : (
           filteredRestaurants.map((restaurant) => {
-            console.log(restaurant);
             return (
               <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} >
               <RestaurantCard {...restaurant.info} />
