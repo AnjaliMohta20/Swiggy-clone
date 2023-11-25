@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../Utils/Helper";
+import UseOnline from "../Utils/UseOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -27,6 +28,12 @@ const Body = () => {
     } catch (error) {
       console.log("Error", error);
     }
+  }
+
+  const online = UseOnline();
+
+  if(!online){
+    return <h1>Offline, Please check your network connection</h1>
   }
 
   if (!allRestaurants){
